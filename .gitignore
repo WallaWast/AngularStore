@@ -483,3 +483,5 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 API/store.db
+API/store.db-shm
+API/store.db-wal
