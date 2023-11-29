@@ -13,7 +13,7 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsnc()
+    public async Task<IReadOnlyList<ProductBrand>> GetProductBrandsAsync()
     {
         return await _context.ProductBrands.ToListAsync();
     }
@@ -26,7 +26,7 @@ public class ProductRepository : IProductRepository
                             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
-    public async Task<IReadOnlyList<Product>> GetProductsAsnc()
+    public async Task<IReadOnlyList<Product>> GetProductsAsync()
     {
         return await _context.Products
                             .Include(p => p.ProductType)
@@ -34,7 +34,7 @@ public class ProductRepository : IProductRepository
                             .ToListAsync();
     }
 
-    public async Task<IReadOnlyList<ProductType>> GetProductTypesAsnc()
+    public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
     {
         return await _context.ProductTypes.ToListAsync();
     }
