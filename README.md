@@ -9,3 +9,11 @@ dotnet ef migrations add InitialCreate -p .\Infrastructure\ -s .\API\ -o Data/Mi
 
 dotnet ef database update
 ```
+
+Using NVM to control Node version:
+https://github.com/coreybutler/nvm-windows
+
+## Run the angular APP
+```powershell
+ng serve
+```
