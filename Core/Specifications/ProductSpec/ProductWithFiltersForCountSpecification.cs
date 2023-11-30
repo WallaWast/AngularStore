@@ -1,6 +1,6 @@
 using Core.Entities;
 
-namespace Core.Specifications;
+namespace Core.Specifications.ProductSpec;
 
 public class ProductWithFiltersForCountSpecification : BaseSpecification<Product>
 {
