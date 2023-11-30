@@ -1,7 +1,7 @@
 using Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Core.Interfaces;
-using Core.Specifications;
+using Core.Specifications.ProductSpec;
 using API.Dtos;
 using AutoMapper;
 using API.Errors;
