@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Infrastructure.Data.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 namespace API.Extensions;
 
@@ -19,9 +20,17 @@ public static class ApplicationServiceExtensions
             options.UseSqlite(config.GetConnectionString("DefaultConnection"));
         });
 
+        services.AddSingleton<IConnectionMultiplexer>(c =>
+        {
+            var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
+            return ConnectionMultiplexer.Connect(options);
+        });
+
+        services.AddScoped<IBasketRepository, BasketRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         services.Configure<ApiBehaviorOptions>(options =>
         {
             options.InvalidModelStateResponseFactory = actionContext =>
