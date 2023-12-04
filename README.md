@@ -6,6 +6,7 @@ dotnet watch --no-hot-reload
 ## Add migrations
 ```powershell
 dotnet ef migrations add InitialCreate -p .\Infrastructure\ -s .\API\ -o Data/Migrations
+dotnet ef migrations add IdentityInitial -p .\Infrastructure\ -s .\API\ -c AppIdentityDbContext -o Identity/Migrations
 
 dotnet ef database update
 ```
